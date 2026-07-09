@@ -1,9 +1,22 @@
-def edit_interaction_tool(data):
+from app.ai.groq_client import llm
 
-    print("Edit Interaction Tool Called")
+
+def edit_interaction_tool(text):
+
+    prompt = f"""
+
+The user wants to edit this interaction.
+
+Identify what fields should change.
+
+{text}
+
+"""
+
+    response = llm.invoke(prompt)
 
     return {
-        "tool": "Edit Interaction",
-        "status": "success",
-        "data": data
+
+        "edit": response.content
+
     }

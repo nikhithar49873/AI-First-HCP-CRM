@@ -1,8 +1,20 @@
-def followup_tool(data):
+from app.ai.groq_client import llm
 
-    print("Follow-up Tool Called")
+
+def followup_tool(text):
+
+    prompt = f"""
+
+When should the sales representative follow up?
+
+{text}
+
+"""
+
+    response = llm.invoke(prompt)
 
     return {
-        "message": "Reminder created",
-        "followup": data
+
+        "followup": response.content
+
     }

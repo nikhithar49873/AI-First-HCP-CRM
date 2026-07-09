@@ -1,7 +1,20 @@
+from app.ai.groq_client import llm
+
+
 def summary_tool(text):
 
-    print("Summary Tool Called")
+    prompt = f"""
+
+Summarize this meeting in less than 80 words.
+
+{text}
+
+"""
+
+    response = llm.invoke(prompt)
 
     return {
-        "summary": text
+
+        "summary": response.content
+
     }

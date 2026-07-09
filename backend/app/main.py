@@ -3,19 +3,21 @@ from fastapi import FastAPI
 from app.database.connection import engine
 from app.database.models import Base
 
-# Import the Interaction model so SQLAlchemy knows about it
 from app.models.interaction import Interaction
 
+from app.api.interaction import router as interaction_router
+
 app = FastAPI(
-    title="AI-First HCP CRM API"
+    title="AI First HCP CRM"
 )
 
-# Create all database tables
 Base.metadata.create_all(bind=engine)
+
+app.include_router(interaction_router)
 
 
 @app.get("/")
 def home():
     return {
-        "message": "Welcome to AI-First HCP CRM Backend"
+        "message": "Welcome to AI First HCP CRM Backend"
     }

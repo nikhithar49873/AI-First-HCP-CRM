@@ -1,17 +1,47 @@
 # AI-First HCP CRM
 
+## Project Overview
+
+AI-First HCP CRM is an AI-powered Healthcare CRM application that helps medical representatives record doctor interactions efficiently. Users can enter meeting notes, and the AI assistant extracts structured information to automatically populate the interaction form before saving it to the database.
+
+---
+
+## Features
+
+- AI-assisted interaction logging
+- Automatic extraction of doctor details
+- Auto-fill interaction form
+- Store interactions in SQLite
+- FastAPI REST APIs
+- React frontend
+- LangGraph agent workflow
+- Groq LLM integration
+
+---
+
 ## Tech Stack
 
+Frontend
 - React
-- Redux Toolkit
+- Vite
+- Axios
+
+Backend
 - FastAPI
-- MySQL
+- SQLAlchemy
 - LangGraph
-- Groq (Gemma2-9B)
+- Groq API
 
-## Modules
+Database
+- SQLite
 
-- Dashboard
-- Log Interaction
-- Chat Interface
-- Interaction History
+---
+
+## How to Run
+
+### Backend
+
+```bash
+cd backend
+venv\Scripts\activate
+python -m uvicorn app.main:app --reload
